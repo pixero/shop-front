@@ -4,6 +4,7 @@ import './App.css';
 import {ContainerHeader} from "./components/header/ContainerHeader";
 import {ContainerMainPage} from "./page/mainPage/ContainerMainPage";
 import {Col, Container, Row} from "react-bootstrap";
+import {ContainerFooter} from "./components/footer/ContainerFooter";
 
 function App() {
   return (
@@ -11,9 +12,9 @@ function App() {
               <Row>
                   <Col><ContainerHeader/></Col>
               </Row>
-            <Row className="mainContent">
-                <Col><ContainerMainPage/></Col>
-            </Row>
+                <ContainerMainPage/>
+
+                <ContainerFooter/>
           </Container>
 
   );
