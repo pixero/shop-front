@@ -8,18 +8,20 @@ import {ContainerFooter} from "./components/footer/ContainerFooter";
 import {ContainerYandexMap} from "./components/yandexMap/ContainerYandexMap";
 
 function App() {
-  return (
-          <Container>
-              <Row>
-                  <Col><ContainerHeader/></Col>
-              </Row>
+    if (! /admin/.test(window.location.pathname)) {
+        return (
+            <Container>
+                <Row>
+                    <Col><ContainerHeader/></Col>
+                </Row>
                 <ContainerMainPage/>
-                <ContainerYandexMap/>
-
                 <ContainerFooter/>
-          </Container>
+            </Container>
 
-  );
+        );
+    }
+    else { return null}
 }
+
 
 export default App;
