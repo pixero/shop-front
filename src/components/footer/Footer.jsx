@@ -6,7 +6,7 @@ import Row from "react-bootstrap/Row";
 export class Footer extends React.Component{
     render() {
         return(
-            <footer  className="fixed-bottom" data-spy="affix" data-offset-bottom="0">
+            <footer  className="bottom" data-spy="affix" data-offset-bottom="0">
                 <div className="container footer-content">
                     <div className="row ">
                     <p className="col-10">2020© Все права защищены</p>
