@@ -7,7 +7,7 @@ import {ContainerYandexMap} from "../../components/yandexMap/ContainerYandexMap"
 export class MainPage extends React.Component{
     render() {
         return(
-            <Container >
+            <Container>
                 <Row>
                 <ContainerSearch/>
                 </Row>
