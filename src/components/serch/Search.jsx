@@ -3,11 +3,9 @@ import './SearchStyle.sass'
 export class Search extends React.Component{
     render() {
         return(
-            <div className="d-flex justify-content-end col-12">
-                <div className="searchbar">
-                    <input className="search_input" type="text" name="" placeholder="Поиск..."/>
-                        <a href="#" className="search_icon"><i className="fa fa-search"> </i></a>
-                </div>
+            <div className="search-container"><input type="text" className="search-input" name="search-bar"
+                                                     placeholder="Search..."/>
+                <button className="btn btn-light search-btn" type="button"> <i className="fa fa-search"></i> </button>
             </div>
         )
     }

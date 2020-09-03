@@ -1,32 +1,37 @@
 import React from "react";
 import './HeaderStyle.sass';
-import {NavLink} from "react-router-dom";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
+
 
 export class Header extends React.Component{
     render() {
         return(
-            <header className="justify-content-center">
-            <Navbar bg="light" expand="lg" className="row">
-                <div className="logo col-10">
-                    <NavLink to="/" exact className="up_logo"><span id="avto">Avto</span><span
-                        id="master">Master</span></NavLink>
+            <nav className="navbar navbar-light navbar-expand-md navigation-clean">
+                <div className="container"><a className="navbar-brand" href="#">AvtoMaster</a>
+                    <button data-toggle="collapse" className="navbar-toggler" data-target="#navcol-1"><span
+                        className="sr-only">Toggle navigation</span><span className="navbar-toggler-icon"></span>
+                    </button>
+                    <div className="collapse navbar-collapse"
+                         id="navcol-1">
+                        <ul className="nav navbar-nav ml-auto">
+                            <li className="nav-item" role="presentation"><a className="nav-link active" href="#">First
+                                Item</a></li>
+                            <li className="nav-item" role="presentation"><a className="nav-link" href="#">Second
+                                Item</a></li>
+                            <li className="nav-item" role="presentation"><a className="nav-link" href="#">Third Item</a>
+                            </li>
+                            <NavDropdown title="Dropdown" id="nav-dropdown">
+                                <NavDropdown.Item eventKey="4.1">Action</NavDropdown.Item>
+                                <NavDropdown.Item eventKey="4.2">Another action</NavDropdown.Item>
+                                <NavDropdown.Item eventKey="4.3">Something else here</NavDropdown.Item>
+                                <NavDropdown.Divider />
+                                <NavDropdown.Item eventKey="4.4">Separated link</NavDropdown.Item>
+                            </NavDropdown>
+                            
+                        </ul>
+                    </div>
                 </div>
-                <Navbar.Collapse id="basic-navbar-nav" >
-                    <Nav className="mr-auto justify-content-end col-7">
-                        <Nav.Link href="#home"> Адреса</Nav.Link>
-                        <NavDropdown title="Личный кабинет" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="/logIn">Войти</NavDropdown.Item>
-                            <NavDropdown.Item href="/signIn">Регстрация</NavDropdown.Item>
-
-                        </NavDropdown>
-                    </Nav>
-                </Navbar.Collapse>
-            </Navbar>
-                <div className="horizontal_line row"> </div>
-            </header>
+            </nav>
         )
     }
 }

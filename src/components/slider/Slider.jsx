@@ -3,9 +3,11 @@ import Carousel from "react-bootstrap/Carousel";
 import './StyleSlider.sass';
 
 export class Slider extends React.Component{
+
+
     render() {
         return(
-            <Carousel className="col-12 sliderMain">
+            <Carousel className="sliderMain">
                 <Carousel.Item className="silderItems">
                     <img
                         className="d-block w-100 img-thumbnail"

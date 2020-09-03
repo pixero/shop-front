@@ -9,9 +9,7 @@ function App() {
     if (! /admin/.test(window.location.pathname)) {
         return (
             <Container>
-                <Row>
-                    <Col><ContainerHeader/></Col>
-                </Row>
+                <ContainerHeader/>
                 <ContainerMainPage/>
                 <ContainerFooter/>
             </Container>

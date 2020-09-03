@@ -3,22 +3,28 @@ import './FooterStyle.sass';
 import Row from "react-bootstrap/Row";
 
 
-export class Footer extends React.Component{
+export class Footer extends React.Component {
     render() {
-        return(
-            <footer  className="bottom" data-spy="affix" data-offset-bottom="0">
-                <div className="container footer-content">
-                    <div className="row ">
-                    <p className="col-10">2020© Все права защищены</p>
-                        <div className="col-2 iconSocial">
-                            <a href="https://www.instagram.com/alex.zaicev/?igshid=1bx8lsbxibbpo" target="_blank"> <i
-                                className="fa fa-2x fa-instagram" aria-hidden="true"> </i> </a>
-                            <a href="https://vk.com/id5670045" target="_blank"> <i className=" fa fa-2x fa-vk"  aria-hidden="true"> </i>  </a>
-                        </div>
-
+        return (
+            <div className="footer-basic">
+                <footer>
+                    <div className="social"><a href="#"><i className="fa  fa-instagram"></i></a><a href="#"><i
+                        className="fa fa-vk"></i></a>
+                        {/*<a href="#">*/}
+                        {/*<i className="icon ion-social-twitter"></i></a>*/}
+                        {/*<a href="#">*/}
+                        {/*<i className="icon ion-social-facebook"></i></a>*/}
                     </div>
-                </div>
-            </footer>
+                    <ul className="list-inline">
+                        <li className="list-inline-item"><a href="#">Home</a></li>
+                        <li className="list-inline-item"><a href="#">Services</a></li>
+                        <li className="list-inline-item"><a href="#">About</a></li>
+                        <li className="list-inline-item"><a href="#">Terms</a></li>
+                        <li className="list-inline-item"><a href="#">Privacy Policy</a></li>
+                    </ul>
+                    <p className="copyright">Company Name © 2017</p>
+                </footer>
+            </div>
         )
     }
 }

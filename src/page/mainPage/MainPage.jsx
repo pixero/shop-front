@@ -7,17 +7,11 @@ import {ContainerYandexMap} from "../../components/yandexMap/ContainerYandexMap"
 export class MainPage extends React.Component{
     render() {
         return(
-            <Container>
-                <Row>
+            <div>
                 <ContainerSearch/>
-                </Row>
-                <Row>
                 <ContainerSlider/>
-                </Row>
-                <Row>
                 <ContainerYandexMap/>
-                </Row>
-            </Container>
+            </div>
 
         )
     }
