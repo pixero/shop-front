@@ -1,9 +1,12 @@
 import React from 'react';
 import './App.css';
-import {ContainerHeader} from "./components/header/ContainerHeader";
+import {ContainerHeader} from "./components/user/header/ContainerHeader";
 import {ContainerMainPage} from "./page/mainPage/ContainerMainPage";
-import {Col, Container, Row} from "react-bootstrap";
-import {ContainerFooter} from "./components/footer/ContainerFooter";
+import {Container} from "react-bootstrap";
+import {ContainerFooter} from "./components/user/footer/ContainerFooter";
+import {ContainerAdminHeader} from "./components/admin/header/ContainerAdminHeader";
+import {ContainerAdminFooter} from "./components/admin/footer/ContainerAdminFooter";
+import {ContainerAdminPage} from "./page/adminPage/ContainerAdminPage";
 
 function App() {
     if (! /admin/.test(window.location.pathname)) {
@@ -16,7 +19,15 @@ function App() {
 
         );
     }
-    else { return null}
+    else {
+        return(
+        <div>
+            <ContainerAdminHeader/>
+            <ContainerAdminPage/>
+            <ContainerAdminFooter/>
+        </div>
+        )
+    }
 }
 
 

@@ -667,3 +667,7 @@ module.exports = function(webpackEnv) {
     performance: false,
   };
 };
+new webpack.ProvidePlugin({
+  $: 'jquery',
+  jQuery: 'jquery'
+});

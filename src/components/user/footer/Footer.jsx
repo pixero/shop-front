@@ -1,6 +1,5 @@
 import React from "react";
 import './FooterStyle.sass';
-import Row from "react-bootstrap/Row";
 
 
 export class Footer extends React.Component {

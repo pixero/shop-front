@@ -1,8 +1,8 @@
 import React from "react";
-import {ContainerSlider} from "../../components/slider/ContainerSlider";
-import {ContainerSearch} from "../../components/serch/ContainerSearch";
+import {ContainerSlider} from "../../components/user/slider/ContainerSlider";
+import {ContainerSearch} from "../../components/user/serch/ContainerSearch";
 import {Col, Container, Row} from "react-bootstrap";
-import {ContainerYandexMap} from "../../components/yandexMap/ContainerYandexMap";
+import {ContainerYandexMap} from "../../components/user/yandexMap/ContainerYandexMap";
 
 export class MainPage extends React.Component{
     render() {
