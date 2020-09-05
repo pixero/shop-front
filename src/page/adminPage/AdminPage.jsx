@@ -1,5 +1,6 @@
 import React from "react";
-import {AddProduct} from "../../components/admin/addNewProduct/addProduct";
+import ContainerAddProduct from "../../components/admin/addNewProduct/ContainerAddProduct";
+import {Route} from "react-router-dom";
 
 export class AdminPage extends React.Component{
     render() {
@@ -10,9 +11,8 @@ export class AdminPage extends React.Component{
                     className="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#"><i
                     className="fa fa-download fa-sm text-white-50"></i>&nbsp;Generate Report</a></div>
                 <div className="row">
-                        <AddProduct/>
+                        <Route to="/admin" component={ContainerAddProduct}/>
                 </div>
-
             </div>
 
         )

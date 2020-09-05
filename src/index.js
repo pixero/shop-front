@@ -10,20 +10,22 @@ import 'bootstrap/dist/js/bootstrap.min';
 import {Provider} from "react-redux";
 import {compose, createStore} from "redux";
 import {reducer} from "./redux/Reducer";
+import Axios from "axios";
 
 const store = createStore(reducer, compose(
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 ));
 
+Axios.defaults.baseURL = "http://localhost:8080"
 
 ReactDOM.render(
+    <React.StrictMode>
     <BrowserRouter>
-        <React.StrictMode>
             <Provider store={store}>
                 <App/>
             </Provider>
-        </React.StrictMode>
-    </BrowserRouter>,
+    </BrowserRouter>
+    </React.StrictMode>,
     document.getElementById('root')
 );
 

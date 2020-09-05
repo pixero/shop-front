@@ -1,34 +1,45 @@
-import {AUTH_POST_REQUEST, REQUST_REFRESH_TOKEN, UPDATE_MESSAGE, UPDATE_NAME_USER, UPDATE_PASSWORD_USER} from "./Reducer";
+import {
+    ADD_NEW_PRODUCT,
+    UPDATE_PRODUCT_DESCRIPTION, UPDATE_PRODUCT_FILE,
+    UPDATE_PRODUCT_NAME,
+    UPDATE_PRODUCT_NUMBER,
+    UPDATE_PRODUCT_PRICE
+} from "./Reducer";
 
-export function creatorUpdatePasswordUser(password){
+
+export function UpdateProductNumber(number){
     return{
-        type: UPDATE_PASSWORD_USER,
-        password
+        type: UPDATE_PRODUCT_NUMBER,
+        payload:number
+    }
+}
+export function UpdateProductName(name){
+    return{
+        type: UPDATE_PRODUCT_NAME,
+        payload:name
+    }
+}
+export function UpdateProductDescription(description){
+    return{
+        type: UPDATE_PRODUCT_DESCRIPTION,
+        payload:description
+    }
+}
+export function UpdateProductPrice(price){
+    return{
+        type: UPDATE_PRODUCT_PRICE,
+        payload:price
+    }
+}
+export function UpdateProductFile (file) {
+    return{
+        type: UPDATE_PRODUCT_FILE,
+        payload:file
+    }
+}
+export function AddNewProduct(){
+    return{
+        type: ADD_NEW_PRODUCT
     }
 }
 
-export function creatorUpdateNameUser(name){
-    return{
-        type: UPDATE_NAME_USER,
-        name
-    }
-}
-
-export function creatorUpdateMessageText(text){
-    return{
-        type: UPDATE_MESSAGE,
-        messageWrong:text
-    }
-}
-
-export function creatorAuthPostRequest(){
-    return{
-        type: AUTH_POST_REQUEST
-    }
-}
-
-export function creatorRequestRefreshToken(){
-    return{
-        type: REQUST_REFRESH_TOKEN
-    }
-}

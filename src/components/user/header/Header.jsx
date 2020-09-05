@@ -7,9 +7,9 @@ export class Header extends React.Component{
     render() {
         return(
             <nav className="navbar navbar-light navbar-expand-md navigation-clean">
-                <div className="container"><a className="navbar-brand" href="#">AvtoMaster</a>
+                <div className="container"><a className="navbar-brand" href="#s">AvtoMaster</a>
                     <button data-toggle="collapse" className="navbar-toggler" data-target="#navcol-1"><span
-                        className="sr-only">Toggle navigation</span><span className="navbar-toggler-icon"></span>
+                        className="sr-only">Toggle navigation</span><span className="navbar-toggler-icon"> </span>
                     </button>
                     <div className="collapse navbar-collapse"
                          id="navcol-1">
