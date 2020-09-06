@@ -1,5 +1,6 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
@@ -12,20 +13,20 @@ import {compose, createStore} from "redux";
 import {reducer} from "./redux/Reducer";
 import Axios from "axios";
 
-const store = createStore(reducer, compose(
+const store = createStore(reducer,compose(
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 ));
 
 Axios.defaults.baseURL = "http://localhost:8080"
 
 ReactDOM.render(
-    <React.StrictMode>
     <BrowserRouter>
+    <React.StrictMode>
             <Provider store={store}>
                 <App/>
             </Provider>
-    </BrowserRouter>
-    </React.StrictMode>,
+    </React.StrictMode>
+    </BrowserRouter>,
     document.getElementById('root')
 );
 

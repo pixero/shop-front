@@ -31,7 +31,6 @@ export const AdminReducer = (state = initialState, action) => {
             data.append('file',state.file)
             Axios.post("/product/newProduct",data)
                 .then(response =>{
-                     state.response = response.data.success
 
                 }).catch(error=>{})
             return {...state}

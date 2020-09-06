@@ -1,5 +1,6 @@
 import React from "react";
 import './FooterStyle.sass';
+import {NavLink} from "react-router-dom";
 
 
 export class Footer extends React.Component {
@@ -15,11 +16,11 @@ export class Footer extends React.Component {
                         {/*<i className="icon ion-social-facebook"></i></a>*/}
                     </div>
                     <ul className="list-inline">
-                        <li className="list-inline-item"><a href="#">Home</a></li>
-                        <li className="list-inline-item"><a href="#">Services</a></li>
-                        <li className="list-inline-item"><a href="#">About</a></li>
-                        <li className="list-inline-item"><a href="#">Terms</a></li>
-                        <li className="list-inline-item"><a href="#">Privacy Policy</a></li>
+                        <li className="list-inline-item"><NavLink to="#">Home</NavLink></li>
+                        <li className="list-inline-item"><NavLink to="#">Services</NavLink></li>
+                        <li className="list-inline-item"><NavLink to="#">About</NavLink></li>
+                        <li className="list-inline-item"><NavLink to="#">Terms</NavLink></li>
+                        <li className="list-inline-item"><NavLink to="#">Privacy Policy</NavLink></li>
                     </ul>
                     <p className="copyright">Company Name © 2017</p>
                 </footer>
