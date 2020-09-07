@@ -6,6 +6,8 @@ import {GetProduct, GetProductNumber} from "../../../redux/ProductInfo/Action";
  class ContainerProductInfo extends React.Component{
     constructor(props) {
         super(props);
+    }
+    componentDidMount() {
         this.props.GetProduct()
     }
 

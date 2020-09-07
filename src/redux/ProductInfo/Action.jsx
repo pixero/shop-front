@@ -22,7 +22,7 @@ export const GetProductNumber = () => async dispatch =>{
        type: GET_PRODUCT_NUMBER
    })
     try {
-       const state = JSON.parse(localStorage.getItem('numberProduct'))
+       let state = JSON.parse(localStorage.getItem('numberProduct'))
         Axios.get('product/getNumberProduct/'+ state.numberProduct).then(reponse =>{
             if(reponse.data.success){
                 dispatch({
@@ -30,7 +30,7 @@ export const GetProductNumber = () => async dispatch =>{
                     payload:(
                         <Alert variant="success">
                             Товар найден{' '}
-                            <NavLink  to={"/product/"} > перейти</NavLink>
+                            <NavLink  to={"/product/"+state.numberProduct} > перейти</NavLink>
                         </Alert>
                     )
                 })
@@ -51,9 +51,34 @@ export const GetProductNumber = () => async dispatch =>{
 
 }
 
-export function GetProduct(){
-    return{
-        type: GET_PRODUCT
-    }
+export const GetProduct =() => async dispatch  =>{
+  dispatch({
+      type:GET_PRODUCT
+  })
+    // try {
+    //     let state = JSON.parse(localStorage.getItem('numberProduct'));
+    //     Axios.get('product/getNumberProduct/'+ state.numberProduct).then(reponse =>{
+    //         if(reponse.data.success){
+    //             dispatch({
+    //                 type:GET_PRODUCT_NUMBER,
+    //                 payload:(
+    //                     <Alert variant="success">
+    //                         Товар найден{' '}
+    //                         <a  href={"/product/"+state.numberProduct} > перейти</a>
+    //                     </Alert>
+    //                 )
+    //             })
+    //         }
+    //         else {
+    //             dispatch({
+    //                 type:GET_PRODUCT_NUMBER,
+    //                 payload:(
+    //                     <Alert variant="danger">
+    //                         Товар не найден{' '}
+    //                     </Alert>)
+    //             })
+    //         }
+    //     })
+    // }
 }
 
