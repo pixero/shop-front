@@ -1,33 +1,45 @@
-
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter} from "react-router-dom";
 import 'font-awesome/css/font-awesome.min.css';
 import 'bootstrap/dist/js/bootstrap.min';
 import {Provider} from "react-redux";
-import {compose, createStore} from "redux";
-import {reducer} from "./redux/Reducer";
+import {applyMiddleware,  createStore} from "redux";
 import Axios from "axios";
+import thunk from "redux-thunk";
+import {composeWithDevTools} from "redux-devtools-extension";
+import {createBrowserHistory} from "history";
+import {routerMiddleware,ConnectedRouter} from "connected-react-router";
 
-const store = createStore(reducer,compose(
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+import './index.css';
+import App from './App';
+import createRootReducer from './redux/Reducer';
+
+const history = createBrowserHistory();
+const middleWare = [thunk,routerMiddleware(history)]
+const store = createStore(createRootReducer(history),
+            composeWithDevTools(applyMiddleware(...middleWare)
 ));
 
 Axios.defaults.baseURL = "http://localhost:8080"
 
-ReactDOM.render(
+const app = (
+    <Provider store={store}>
     <BrowserRouter>
-    <React.StrictMode>
-            <Provider store={store}>
+        <ConnectedRouter history={history}>
+        <React.StrictMode>
                 <App/>
-            </Provider>
-    </React.StrictMode>
-    </BrowserRouter>,
-    document.getElementById('root')
+        </React.StrictMode>
+        </ConnectedRouter>
+    </BrowserRouter>
+</Provider>
+)
+
+
+ReactDOM.render(
+    app, document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change
