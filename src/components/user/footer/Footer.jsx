@@ -1,6 +1,6 @@
 import React from "react";
 import './FooterStyle.sass';
-import {NavLink} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 
 
 export class Footer extends React.Component {
@@ -8,8 +8,8 @@ export class Footer extends React.Component {
         return (
             <div className="footer-basic">
                 <footer>
-                    <div className="social"><a href="#"><i className="fa  fa-instagram"></i></a><a href="#"><i
-                        className="fa fa-vk"></i></a>
+                    <div className="social"><Link to="#"><i className="fa  fa-instagram"> </i></Link><Link to="#"><i
+                        className="fa fa-vk"> </i></Link>
                         {/*<a href="#">*/}
                         {/*<i className="icon ion-social-twitter"></i></a>*/}
                         {/*<a href="#">*/}

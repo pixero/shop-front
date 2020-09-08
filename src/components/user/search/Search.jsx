@@ -16,7 +16,7 @@ export class Search extends React.Component{
                                                      onChange={()=>this.props.updateNumber(this.numberProduct.current.value)}
                                                      placeholder="Search..."/>
                 <button className="btn btn-light search-btn" type="button"
-                        onClick={()=>this.props.getProduct()}> <i className="fa fa-search"></i> </button>
+                        onClick={()=>this.props.getProduct()}> <i className="fa fa-search"> </i> </button>
             </div>
                 {this.props.state.response}
             </div>
