@@ -5,7 +5,7 @@ import React from "react";
 
 export  const Router = (
     <Switch>
-        <Route component={ContainerMainPage} exact ={true} path="/"/>
+        <Route component={ContainerMainPage} exact  path="/"/>
         <Route component={ContainerProductInfo} path={"/product"}/>
     </Switch>
 )

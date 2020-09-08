@@ -1,5 +1,4 @@
 import Axios from "axios";
-import React from "react";
 
 export const ADD_NEW_PRODUCT = "ADD_NEW_PRODUCT";
 export const UPDATE_PRODUCT_NUMBER = "UPDATE_PRODUCT_NUMBER";

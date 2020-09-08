@@ -1,14 +1,12 @@
 import React from "react";
 import {connect} from "react-redux";
 import {ProductInfo} from "./productInfo";
-import {GetProduct, GetProductNumber} from "../../../redux/ProductInfo/Action";
+import {GetProduct, GetProductNumber,GetPicture} from "../../../redux/ProductInfo/Action";
 
  class ContainerProductInfo extends React.Component{
-    constructor(props) {
-        super(props);
-    }
     componentDidMount() {
-        this.props.GetProduct()
+        this.props.GetProduct();
+        this.props.GetPicture()
     }
 
      render() {
@@ -24,6 +22,7 @@ const mapStateToProps = state =>{
 }
 const mapDispatchToProps={
     GetProductNumber,
-    GetProduct
+    GetProduct,
+    GetPicture
 }
 export default connect(mapStateToProps,mapDispatchToProps)(ContainerProductInfo)

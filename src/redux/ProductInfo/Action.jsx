@@ -1,6 +1,7 @@
 import {
+    GET_PICTURE,
     GET_PRODUCT,
-    GET_PRODUCT_NUMBER,
+    GET_PRODUCT_NUMBER, getPicture,
     getProduct,
     UPDATE_PRODUCT_NUMBER
 } from "./Reducer";
@@ -56,14 +57,31 @@ export const GetProduct =() => async dispatch  =>{
       type:GET_PRODUCT
   })
     try{
-        getProduct().then( reponse =>
-          dispatch({
-              type:GET_PRODUCT,
-              payload:reponse
-          })
+        getProduct().then( reponse => {
+            localStorage.setItem('picture', JSON.stringify(reponse.pictures))
+            dispatch({
+                type: GET_PRODUCT,
+                payload: reponse
+            })
+        }
       )
     }catch (error){
       console.error(error)
+    }
+}
+export const GetPicture = () => async dispatch =>{
+    dispatch({
+        type:GET_PICTURE
+    })
+    try{
+        getPicture().then( response =>
+            dispatch({
+                type:GET_PICTURE,
+                payload: response
+            })
+        )
+    }catch (error){
+        console.error(error)
     }
 }
 

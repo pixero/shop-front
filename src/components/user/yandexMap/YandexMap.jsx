@@ -14,7 +14,7 @@ export class YandexMap extends React.Component{
                 </div>
                 <iframe allowFullScreen="" frameBorder="0"
                         src="https://yandex.ru/map-widget/v1/?um=constructor%3A5843921d7ced514ed8222a602f1d679ee966d0164c67d19a10b0c2153fd5786b&amp;source=constructor"
-                        width="100%" height="450"></iframe>
+                        width="100%" height="450"> </iframe>
             </div>
         )
     }

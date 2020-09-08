@@ -10,6 +10,7 @@ export class ProductInfo extends  React.Component{
                         <div className="row">
                             <div className="col-md-12">
                                 {/*<img className="img-thumbnail img-fluid center-block" src="png" />*/}
+                                {this.props.state.arrayPicture}
                             </div>
                         </div>
                     </div>

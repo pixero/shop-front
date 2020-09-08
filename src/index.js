@@ -29,9 +29,7 @@ const app = (
     <Provider store={store}>
         <ConnectedRouter history={history}>
             <BrowserRouter>
-                <React.StrictMode>
                          <App/>
-                </React.StrictMode>
             </BrowserRouter>
         </ConnectedRouter>
     </Provider>
