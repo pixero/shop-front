@@ -1,8 +1,7 @@
 import {
     GET_PRODUCT,
     GET_PRODUCT_NUMBER,
-    GET_PRODUCT_NUMBER_FAIL,
-    GET_PRODUCT_NUMBER_SACCESS,
+    getProduct,
     UPDATE_PRODUCT_NUMBER
 } from "./Reducer";
 import Alert from "react-bootstrap/Alert";
@@ -22,15 +21,16 @@ export const GetProductNumber = () => async dispatch =>{
        type: GET_PRODUCT_NUMBER
    })
     try {
-       let state = JSON.parse(localStorage.getItem('numberProduct'))
-        Axios.get('product/getNumberProduct/'+ state.numberProduct).then(reponse =>{
+        let productNumber = localStorage.getItem('numberProduct')
+        Axios.get('product/getNumberProduct/'+ productNumber)
+            .then(reponse =>{
             if(reponse.data.success){
                 dispatch({
                     type:GET_PRODUCT_NUMBER,
                     payload:(
                         <Alert variant="success">
                             Товар найден{' '}
-                            <NavLink  to={"/product/"+state.numberProduct} > перейти</NavLink>
+                            <NavLink  to={"/product/"+productNumber} > перейти</NavLink>
                         </Alert>
                     )
                 })
@@ -55,30 +55,15 @@ export const GetProduct =() => async dispatch  =>{
   dispatch({
       type:GET_PRODUCT
   })
-    // try {
-    //     let state = JSON.parse(localStorage.getItem('numberProduct'));
-    //     Axios.get('product/getNumberProduct/'+ state.numberProduct).then(reponse =>{
-    //         if(reponse.data.success){
-    //             dispatch({
-    //                 type:GET_PRODUCT_NUMBER,
-    //                 payload:(
-    //                     <Alert variant="success">
-    //                         Товар найден{' '}
-    //                         <a  href={"/product/"+state.numberProduct} > перейти</a>
-    //                     </Alert>
-    //                 )
-    //             })
-    //         }
-    //         else {
-    //             dispatch({
-    //                 type:GET_PRODUCT_NUMBER,
-    //                 payload:(
-    //                     <Alert variant="danger">
-    //                         Товар не найден{' '}
-    //                     </Alert>)
-    //             })
-    //         }
-    //     })
-    // }
+    try{
+        getProduct().then( reponse =>
+          dispatch({
+              type:GET_PRODUCT,
+              payload:reponse
+          })
+      )
+    }catch (error){
+      console.error(error)
+    }
 }
 

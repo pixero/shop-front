@@ -15,11 +15,11 @@ export class Header extends React.Component{
                     <div className="collapse navbar-collapse"
                          id="navcol-1">
                         <ul className="nav navbar-nav ml-auto">
-                            <li className="nav-item" role="presentation"><NavLink className="nav-link active" to="/">First
+                            <li className="nav-item" role="presentation"><NavLink className="nav-link " exac to="/">First
                                 Item</NavLink></li>
-                            <li className="nav-item" role="presentation"><NavLink className="nav-link" to="/">Second
+                            <li className="nav-item" role="presentation"><NavLink className="nav-link" exac to="/propduct">Second
                                 Item</NavLink></li>
-                            <li className="nav-item" role="presentation"><NavLink className="nav-link" to="/">Third Item</NavLink>
+                            <li className="nav-item" role="presentation"><NavLink className="nav-link" exac to="/home">Third Item</NavLink>
                             </li>
                             <NavDropdown title="Dropdown" id="nav-dropdown">
                                 <NavDropdown.Item eventKey="4.1">Action</NavDropdown.Item>
