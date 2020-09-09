@@ -7,7 +7,7 @@ export class YandexMap extends React.Component{
             <div className="map-clean">
                 <div className="container">
                     <div className="intro">
-                        <h2 className="text-center">Location </h2>
+                        <h2 className="text-center">Location   </h2>
                         <p className="text-center">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula.
                             Vestibulum nibh erat, pellentesque ut laoreet vitae. </p>
                     </div>
