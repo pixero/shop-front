@@ -1,5 +1,6 @@
 import Axios from "axios";
 import * as R from 'ramda';
+import {add} from "ramda";
 
 //------------------------Action-type--------------------------------
 
@@ -19,11 +20,16 @@ export const getProduct = async () =>{
             return response.data
         }))
 }
-export const getPicture = async()=>{
-    const pictures = JSON.parse(localStorage.getItem('picture'))
-    // console.log(pictures[0].pictureName)
-    return (Axios.get('product/getPictureProduct/'+pictures[0].pictureName))
-        .then(reponse => {return reponse.data})
+export const getPicture = async(pictures)=>{
+    // const pictures = JSON.parse(localStorage.getItem('picture'))
+    return ((Axios.get('product/getPictureProduct/'+pictures.pictureName,{responseType: 'arraybuffer'} ))
+        .then(response => {
+            let image = btoa(
+                new Uint8Array(response.data)
+                    .reduce((data, byte) => data + String.fromCharCode(byte), '')
+            );
+            return `data:${response.headers['content-type'].toLowerCase()};base64,${image}`;
+        }))
 }
 
 
@@ -33,7 +39,7 @@ let initialState = {
     description:'',
     price:'',
     response:'',
-    arrayPicture:''
+    arrayPicture:[]
 }
 export const ProductReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -46,7 +52,8 @@ export const ProductReducer = (state = initialState, action) => {
         case GET_PRODUCT:
             return {...R.merge(state,action.payload)}
         case GET_PICTURE:
-            return {...state,arrayPicture: action.payload}
+            // return {...state,arrayPicture:[...state.arrayPicture, {src :action.payload}]}
+            return {...state,arrayPicture:action.payload}
         default:
             return state
     }

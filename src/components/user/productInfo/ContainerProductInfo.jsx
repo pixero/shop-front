@@ -6,12 +6,13 @@ import {GetProduct, GetProductNumber,GetPicture} from "../../../redux/ProductInf
  class ContainerProductInfo extends React.Component{
     componentDidMount() {
         this.props.GetProduct();
-        this.props.GetPicture()
+        this.props.GetPicture();
     }
 
      render() {
         return(
                 <ProductInfo   state={this.props.Product}
+                               arrayPicture={this.props.Product.arrayPicture}
 
                 />
         )

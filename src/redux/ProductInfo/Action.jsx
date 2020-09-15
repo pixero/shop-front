@@ -31,7 +31,7 @@ export const GetProductNumber = () => async dispatch =>{
                     payload:(
                         <Alert variant="success">
                             Товар найден{' '}
-                            <NavLink  to={"/product/"+productNumber} > перейти</NavLink>
+                            <a  href={"/product/"+productNumber} > перейти</a>
                         </Alert>
                     )
                 })
@@ -70,16 +70,20 @@ export const GetProduct =() => async dispatch  =>{
     }
 }
 export const GetPicture = () => async dispatch =>{
-    dispatch({
-        type:GET_PICTURE
-    })
+
     try{
-        getPicture().then( response =>
-            dispatch({
-                type:GET_PICTURE,
-                payload: response
-            })
-        )
+        const pictures = JSON.parse(localStorage.getItem('picture'))
+
+        // for (let i =0;i<pictures.length;i++)
+        // {
+            getPicture(pictures[1]).then(response => {
+                    dispatch({
+                        type: GET_PICTURE,
+                        payload: response
+                    })
+                }
+            )
+        // }
     }catch (error){
         console.error(error)
     }
