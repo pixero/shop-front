@@ -1,6 +1,5 @@
-import Axios from "axios";
+import Axios from "axios"
 import * as R from 'ramda';
-import {add} from "ramda";
 
 //------------------------Action-type--------------------------------
 
@@ -8,6 +7,7 @@ export const UPDATE_PRODUCT_NUMBER = "UPDATE_PRODUCT_NUMBER";
 export const GET_PRODUCT_NUMBER = "GET_PRODUCT_NUMBER";
 export const GET_PRODUCT = "GET_PRODUCT";
 export const GET_PICTURE = "GET_PICTURE"
+export const GET_PICTURE_SUCCESS = "GET_PICTURE_SUCCESS"
 
 //--------------------------API--------------------------------------
 
@@ -39,7 +39,8 @@ let initialState = {
     description:'',
     price:'',
     response:'',
-    arrayPicture:[]
+    arrayPicture:[],
+    isLoading:false
 }
 export const ProductReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -52,8 +53,10 @@ export const ProductReducer = (state = initialState, action) => {
         case GET_PRODUCT:
             return {...R.merge(state,action.payload)}
         case GET_PICTURE:
-            // return {...state,arrayPicture:[...state.arrayPicture, {src :action.payload}]}
+            // return {...state,arrayPicture:[...state.arrayPicture, {src :action.payload}],isLoading:false}
             return {...state,arrayPicture:action.payload}
+        case GET_PICTURE_SUCCESS:
+            return {...state,isLoading: true}
         default:
             return state
     }

@@ -1,5 +1,5 @@
 import {
-    GET_PICTURE,
+    GET_PICTURE, GET_PICTURE_SUCCESS,
     GET_PRODUCT,
     GET_PRODUCT_NUMBER, getPicture,
     getProduct,
@@ -31,7 +31,8 @@ export const GetProductNumber = () => async dispatch =>{
                     payload:(
                         <Alert variant="success">
                             Товар найден{' '}
-                            <a  href={"/product/"+productNumber} > перейти</a>
+                            <NavLink  to={"/product/"+productNumber}
+                            > перейти</NavLink>
                         </Alert>
                     )
                 })
@@ -73,19 +74,20 @@ export const GetPicture = () => async dispatch =>{
 
     try{
         const pictures = JSON.parse(localStorage.getItem('picture'))
+            for (let i = 0; i < pictures.length; i++) {
+                getPicture(pictures[i]).then(response => {
+                        dispatch({
+                            type: GET_PICTURE,
+                            isLoading: false,
+                            payload: response
+                        })
+                    }
+                )
+            }
 
-        // for (let i =0;i<pictures.length;i++)
-        // {
-            getPicture(pictures[1]).then(response => {
-                    dispatch({
-                        type: GET_PICTURE,
-                        payload: response
-                    })
-                }
-            )
-        // }
     }catch (error){
         console.error(error)
     }
+
 }
 

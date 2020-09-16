@@ -10,12 +10,13 @@ import {GetProduct, GetProductNumber,GetPicture} from "../../../redux/ProductInf
     }
 
      render() {
-        return(
-                <ProductInfo   state={this.props.Product}
-                               arrayPicture={this.props.Product.arrayPicture}
+            return (
+                <ProductInfo state={this.props.Product}
+                             arrayPicture={this.props.Product.arrayPicture}
 
                 />
-        )
+            )
+
     }
 }
 const mapStateToProps = state =>{

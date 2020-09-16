@@ -1,7 +1,9 @@
 import React from "react";
+import Loader from "../../Loader"
 
 export class ProductInfo extends  React.Component{
     render() {
+        if(this.props.state.isLoading){
         return(
             <div className="container">
                 <h1 className="text-left">Описание товара</h1>
@@ -9,7 +11,7 @@ export class ProductInfo extends  React.Component{
                     <div className="col-md-7" >
                         <div className="row">
                             <div className="col-md-12">
-                                <img className="img-thumbnail img-fluid center-block" src={ this.props.arrayPicture } />
+                                <img className="img-thumbnail img-fluid center-block" src={ this.props.arrayPicture }  alt=""/>
                             </div>
                         </div>
                     </div>
@@ -23,6 +25,9 @@ export class ProductInfo extends  React.Component{
                     </div>
                 </div>
             </div>
-        )
+        )}
+        else {
+            return <Loader/>
+        }
     }
 }
