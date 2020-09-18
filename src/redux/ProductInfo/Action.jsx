@@ -1,13 +1,12 @@
 import {
     GET_PICTURE, GET_PICTURE_SUCCESS,
     GET_PRODUCT,
-    GET_PRODUCT_NUMBER, getPicture,
-    getProduct,
+    GET_PRODUCT_NUMBER,
     UPDATE_PRODUCT_NUMBER
 } from "./Reducer";
 import Alert from "react-bootstrap/Alert";
-import {NavLink} from "react-router-dom";
 import React from "react";
+import {getPicture, getProduct, getProductNumber} from "./Api";
 import Axios from "axios";
 
 export function UpdateNumberProduct(number){
@@ -18,21 +17,18 @@ export function UpdateNumberProduct(number){
 }
 
 export const GetProductNumber = () => async dispatch =>{
-   dispatch({
-       type: GET_PRODUCT_NUMBER
-   })
     try {
         let productNumber = localStorage.getItem('numberProduct')
-        Axios.get('product/getNumberProduct/'+ productNumber)
-            .then(reponse =>{
-            if(reponse.data.success){
+            getProductNumber(productNumber)
+            .then(response =>{
+            if(response.success){
                 dispatch({
                     type:GET_PRODUCT_NUMBER,
                     payload:(
                         <Alert variant="success">
                             Товар найден{' '}
-                            <NavLink  to={"/product/"+productNumber}
-                            > перейти</NavLink>
+                            <a  href={"/product/"+productNumber}
+                            > перейти</a>
                         </Alert>
                     )
                 })
@@ -84,7 +80,6 @@ export const GetPicture = () => async dispatch =>{
                     }
                 )
             }
-
     }catch (error){
         console.error(error)
     }
