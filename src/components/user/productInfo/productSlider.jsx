@@ -1,34 +1,40 @@
-import Carousel from "react-bootstrap/Carousel";
 import React from "react";
+import Slider from "react-slick";
 
 export default  function  ProductSlider (props) {
 
-        return(
-            <Carousel>
-                {props.pictureName}
-                {/*<Carousel.Item>*/}
-                {/*    <img*/}
-                {/*        className="d-block w-100"*/}
-                {/*        src={props.pictureName}*/}
-                {/*        alt="First slide"*/}
-                {/*    />*/}
-                {/*    <Carousel.Caption>*/}
-                {/*        <h3>First slide label</h3>*/}
-                {/*        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>*/}
-                {/*    </Carousel.Caption>*/}
-                {/*</Carousel.Item>*/}
-                {/*<Carousel.Item>*/}
-                {/*    <img*/}
-                {/*        className="d-block w-100"*/}
-                {/*        src={props.pictureName}*/}
-                {/*        alt="Third slide"*/}
-                {/*    />*/}
 
-                {/*    <Carousel.Caption>*/}
-                {/*        <h3>Third slide label</h3>*/}
-                {/*        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>*/}
-                {/*    </Carousel.Caption>*/}
-                {/*</Carousel.Item>*/}
-            </Carousel>
-        )
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1
+    };
+    return (
+        <div>
+            <h2> Single Item</h2>
+            <Slider {...settings}>
+                <div>
+                    <h3>1</h3>
+                </div>
+                <div>
+                    <h3>2</h3>
+                </div>
+                <div>
+                    <h3>3</h3>
+                </div>
+                <div>
+                    <h3>4</h3>
+                </div>
+                <div>
+                    <h3>5</h3>
+                </div>
+                <div>
+                    <h3>6</h3>
+                </div>
+            </Slider>
+        </div>
+    );
+
 }

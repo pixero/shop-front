@@ -1,23 +1,17 @@
 import React from "react";
 import Loader from "../../Loader"
 import ProductSlider from "./productSlider";
-import Carousel from "react-bootstrap/Carousel";
 
 export class ProductInfo extends  React.Component{
 
     render() {
         let newArrayPicture =  this.props.arrayPicture.map((el,key)=>(
-            <Carousel.Item key = {key}>
-                <img
-                    className="d-block w-100"
-                    src={el.src}
-                    alt="First slide"
-                />
-                <Carousel.Caption>
-                    <h3>First slide label</h3>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                </Carousel.Caption>
-            </Carousel.Item>
+           <div key={key}>
+               <h3>
+                   <img src={el.src} alt=""/>
+                   {key}
+               </h3>
+           </div>
         ))
         console.log(newArrayPicture)
         if(this.props.state.isLoading){
