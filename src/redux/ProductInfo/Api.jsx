@@ -6,6 +6,7 @@ export const getProductNumber = (productNumber)=>{
     }))
 }
 
+
 export const getProduct = async () =>{
 
     return  (Axios.get('product/getInfoProduct/'+ localStorage.getItem('numberProduct'),{headers:{
